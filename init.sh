@@ -15,4 +15,7 @@ read RCON_PASSWORD
 printf "Input mcrcon Path (ex. /path/to/mcrcon.sh)"
 read MCRCON_PATH
 
-declare -p RCON_HOST RCON_PORT RCON_PASSWORD MCRCON_PATH
+echo "RCON_HOST='${RCON_HOST}'"
+echo "RCON_PORT='${RCON_PORT}'"
+echo "RCON_PASSWORD='${RCON_PASSWORD}'"
+echo "MCRCON_PATH='${MCRCON_PATH}'"
