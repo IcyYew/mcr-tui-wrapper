@@ -16,7 +16,7 @@ list() {
 tellall() {
 	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold", \"extra":[{"text":"'${TEXT}'","color":"yellow","bold":false,"italic":true}]}'
 	STATUS=$?
-	if [ STATUS = 1 ]; then
+	if [ "$STATUS" = 1 ]; then
 		printf '%s\n' "$TEXT"
 		return 0
 	else
