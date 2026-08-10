@@ -13,4 +13,8 @@ MCRCON_PATH="${MCRCON_PATH}"
 
 MCRCON="${MCRCON_PATH}"
 
-$MCRCON -H $RCON_HOST -p $RCON_PASSWORD list
+
+
+list() {
+	"$MCRCON" -H "$RCON_HOST" -p "$RCON_PASSWORD" list
+}
