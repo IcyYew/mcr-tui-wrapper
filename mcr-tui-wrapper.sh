@@ -45,18 +45,13 @@ do
 		2) clear
 			printf "Input text to send to all users: "
 			read TEXT
-			OUTPUT=$(tellall 2>&1)
 			clear
-			# Simple check that doesn't do much of anything, can be expanded upon later (conditions in which "Message not sent" prints are
-			# currently zero
-			if [ "$OUTPUT" = 0 ]; then
-				printf "\nMessage not sent"
-				wait_for_user
-			else
+			if OUTPUT=$(tellall 2>&1); then
 				printf 'You sent the message: %s\n' "$OUTPUT"
-				wait_for_user
+			else
+				printf 'Message not sent\n'
 			fi
-
+			wait_for_user
 		 ;;
 		 # Case 9 obvious
 	 	9) clear
