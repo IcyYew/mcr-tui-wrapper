@@ -30,5 +30,8 @@ wait_for_user() {
 }
 
 grant_only_achievement() {
-	rcon 'achievement grant ${USER_NAME} only minecraft:${RESOURCE_LOCATION}'
+	rcon 'achievement grant '${USER_NAME}' only minecraft:'${RESOURCE_LOCATION}''
+	STATUS=$?
+	echo "$STATUS $USER_NAME $RESOURCE_LOCATION"
+	sleep 2
 }
