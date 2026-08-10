@@ -35,7 +35,8 @@ do
 		1)
 			advancement_grant_menu
 			;;
-		2) ;;
+		2) advancement_revoke_menu
+			;;
 		9) break ;;
 		*) ;;
 	esac
@@ -58,8 +59,7 @@ do
 			read TARGET
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
-			GRANT_TYPE="only"
-			OUTPUT=$(grant_advancement 2>&1)
+			OUTPUT=$(grant_only_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -67,10 +67,7 @@ do
 		2)
 			printf "Input target player username (or player target selector): "
 			read TARGET
-			printf "Input advancement resource location: "
-			read RESOURCE_LOCATION
-			GRANT_TYPE="everything"
-			OUTPUT=$(grant_advancement 2>&1)
+			OUTPUT=$(grant_every_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -78,4 +75,8 @@ do
 		*) ;;
 	esac
 done
+}
+
+advancement_revoke_menu() {
+	
 }

@@ -29,7 +29,11 @@ wait_for_user() {
 	read X
 }
 
-grant_advancement() {
-	rcon "advancement grant ${TARGET} ${GRANT_TYPE} minecraft:${RESOURCE_LOCATION}"
+grant_only_advancement() {
+	rcon "advancement grant ${TARGET} only minecraft:${RESOURCE_LOCATION}"
 	STATUS=$?
+}
+
+grant_every_advancement() {
+	rcon "advancement grant ${TARGET} everything"
 }
