@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./.env
+
 # Can be configured automatically via init or manually if you wish
 RCON_HOST="${RCON_HOST}"
 RCON_PORT="${RCON_PORT}"
