@@ -20,7 +20,7 @@ rcon() {
 	"$MCRCON" \
 		-H "$RCON_HOST" \
 		-p "$RCON_PASSWORD" \
-		$1
+		"$1"
 }
 
 list() {
@@ -28,7 +28,7 @@ list() {
 }
 
 tellall() {
-	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold","extra":[{"text":"${OPTS}","color":"yellow","bold":false,"italic":true}]}'
+	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold","extra":[{"text":"'${OPTS}'","color":"yellow","bold":false,"italic":true}]}'
 }
 
 if [ -z "$COMMAND" ]; then
