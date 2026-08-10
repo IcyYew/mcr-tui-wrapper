@@ -15,4 +15,4 @@ read RCON_PASSWORD
 printf "Input mcrcon Path (ex. /path/to/mcrcon.sh): "
 read MCRCON_PATH
 
-echo "RCON_HOST='${RCON_HOST}'\nRCON_PORT='${RCON_PORT}'\nRCON_PASSWORD='${RCON_PASSWORD}'\nMCRCON_PATH='${MCRCON_PATH}'" > .env
+printf "RCON_HOST='${RCON_HOST}'\nRCON_PORT='${RCON_PORT}'\nRCON_PASSWORD='${RCON_PASSWORD}'\nMCRCON_PATH='${MCRCON_PATH}'" > .env
