@@ -37,3 +37,11 @@ grant_only_advancement() {
 grant_every_advancement() {
 	rcon "advancement grant ${TARGET} everything"
 }
+
+revoke_only_advancement() {
+	rcon "advancement revoke ${TARGET} only minecraft:${RESOURCE_LOCATION}"
+}
+
+revoke_every_advancement() {
+	rcon "advancement revoke ${TARGET} everything"
+}

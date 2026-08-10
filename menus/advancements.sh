@@ -78,5 +78,31 @@ done
 }
 
 advancement_revoke_menu() {
-	
+while :
+do
+	clear
+	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
+	read ACH_GRT_VAR
+	case "$ACH_GRT_VAR" in
+		1) 
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			OUTPUT=$(revoke_only_advancement 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
+		
+		2)
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			OUTPUT=$(revoke_every_advancement 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
+		9) break ;;
+		*) ;;
+	esac
+done
 }
