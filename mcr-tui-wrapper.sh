@@ -7,7 +7,7 @@
 #
 . ./.env
 . ./mcrw-functions.lib
-
+. ./menus/advancements.sh
 #
 #
 # 	ENV VARS
@@ -54,56 +54,7 @@ do
 			wait_for_user
 		 ;;
 		3) 
-			while :
-			do
-				clear
-				printf "ACHIEVEMENTS MENU\n1. ACHIEVEMENT MANAGEMENT\n2. ACHIEVEMENT FETCHING\n9. EXIT\n"
-				read ACH_SELECT_VAR
-				case "$ACH_SELECT_VAR" in
-					1) 
-						while :
-						do
-							clear
-							printf "ACHIEVEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. EXIT\n"
-							read ACH_MGMT_VAR
-							case "$ACH_MGMT_VAR" in
-								1)
-									while :
-									do
-										clear
-										printf "ACHIEVEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
-										read ACH_GRT_VAR
-										case "$ACH_GRT_VAR" in
-											1) 
-												printf "Input target player username: "
-												read USER_NAME
-												printf "Input advancement resource location: "
-												read RESOURCE_LOCATION
-												OUTPUT=$(grant_only_advancement 2>&1)
-												printf '%s\n' "$OUTPUT"
-												wait_for_user
-												;;
-											9) break ;;
-											*) ;;
-										esac
-
-									done
-									;;
-								2) ;;
-								9) break ;;
-								*) ;;
-							esac
-
-						done
-
-						;;
-					2) ;;
-					9) break ;;
-					*) printf "Not an option" ;;
-				esac
-			done
-
-
+			advancement_menu
 		;;
 		 # Case 9 obvious
 	 	9) clear
