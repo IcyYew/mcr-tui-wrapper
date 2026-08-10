@@ -19,7 +19,7 @@ rcon() {
 	"$MCRCON" \
 		-H "$RCON_HOST" \
 		-p "$RCON_PASSWORD" \
-		"$COMMAND"
+		$1
 }
 
 list() {
