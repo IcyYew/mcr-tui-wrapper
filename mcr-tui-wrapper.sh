@@ -18,7 +18,7 @@ COMMAND=$1
 rcon() {
 	"$MCRCON" \
 		-H "$RCON_HOST" \
-		-p "$RCON_PASS"
+		-p "$RCON_PASSWORD"
 }
 
 list() {
