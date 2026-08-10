@@ -132,7 +132,7 @@ do
 			printf "Input advancement criterion resource location: "
 			read CRITERION_RESOURCE_LOCATION
 			clear
-			OUTPUT=$(grant_only_criterion_advancement 2>&1)
+			OUTPUT=$(grant_only_advancement_criterion 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 			;;
