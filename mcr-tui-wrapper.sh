@@ -24,31 +24,6 @@ OPTS=$2
 
 #
 #
-#  	FUNCTION DEFINITIONS
-#
-#
-
-# rcon function for base mcrcon calls, uses env vars and one input argument (the mc server command to be executed)
-rcon() {
-	"$MCRCON" \
-		-H "$RCON_HOST" \
-		-p "$RCON_PASSWORD" \
-		"$1"
-}
-
-# List number of users on the server along with their usernames, calls to rcon function with list passed as argument
-list() {
-	rcon 'list'
-}
-
-# Send a message to all users on the server as server, calls to rcon function with defined "tellall" tellraw passed as argument, OPTS var is passed
-# via cli and defines the message itself
-tellall() {
-	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold","extra":[{"text":"'${OPTS}'","color":"yellow","bold":false,"italic":true}]}'
-}
-
-#
-#
 # Mostly placeholder command handling for proof of concept
 #
 #
