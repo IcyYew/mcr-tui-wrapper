@@ -32,8 +32,7 @@ do
 	printf "ADVANCEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. EXIT\n"
 	read ACH_MGMT_VAR
 	case "$ACH_MGMT_VAR" in
-		1)
-			advancement_grant_menu
+		1)advancement_grant_menu
 			;;
 		2) advancement_revoke_menu
 			;;
@@ -54,7 +53,7 @@ do
 	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
 	read ACH_GRT_VAR
 	case "$ACH_GRT_VAR" in
-		1) 
+		1) clear 
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			printf "Input advancement resource location: "
@@ -65,7 +64,7 @@ do
 			wait_for_user
 		;;
 		
-		2)
+		2) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			clear
@@ -86,7 +85,7 @@ do
 	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
 	read ACH_GRT_VAR
 	case "$ACH_GRT_VAR" in
-		1) 
+		1) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			printf "Input advancement resource location: "
@@ -97,7 +96,7 @@ do
 			wait_for_user
 		;;
 		
-		2)
+		2) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			clear
