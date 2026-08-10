@@ -30,7 +30,11 @@ do
 	read SELECTION_VAR
 	case $SELECTION_VAR in
 		1) list ;;
-		2) tellall ;;
+		2) clear
+			printf "Input text to send to all users: "
+			read OPTS
+			tellall
+			OPTS=$2 ;;
 		*) printf "Not implemented\n" ;;
 	esac
 done
