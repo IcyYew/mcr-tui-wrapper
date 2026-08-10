@@ -31,7 +31,7 @@ while :
 do
 	# Clean up screen
 	clear
-	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n9. EXIT\n"
+	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n3. ACHIEVEMENTS MENU\n9. EXIT\n"
 	read SELECTION_VAR
 	case "$SELECTION_VAR" in
 		# Case 1 lists all active users and quantity of users
@@ -53,6 +53,56 @@ do
 			fi
 			wait_for_user
 		 ;;
+		3) 
+			while :
+			do
+				clear
+				printf "ACHIEVEMENTS MENU\n1. ACHIEVEMENT MANAGEMENT\n2. ACHIEVEMENT FETCHING\n9. EXIT\n"
+				read ACH_SELECT_VAR
+				case "$ACH_SELECT_VAR" in
+					1) 
+						while :
+						do
+							clear
+							printf "ACHIEVEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. EXIT\n"
+							read ACH_MGMT_VAR
+							case "$ACH_MGMT_VAR" in
+								1)
+									while :
+									do
+										clear
+										printf "ACHIEVEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
+										read ACH_GRT_VAR
+										case "$ACH_GRT_VAR" in
+											1) 
+												printf "Input target player username: "
+												read USER_NAME
+												printf "Input advancement resource location: "
+												read RESOURCE_LOCATION
+												grant_only_achievement
+												;;
+											9) break ;;
+											*) ;;
+										esac
+
+									done
+									;;
+								2) ;;
+								9) break ;;
+								*) ;;
+							esac
+
+						done
+
+						;;
+					2) ;;
+					9) break ;;
+					*) printf "Not an option" ;;
+				esac
+			done
+
+
+		;;
 		 # Case 9 obvious
 	 	9) clear
 			printf "Bye bye! o/\n"
