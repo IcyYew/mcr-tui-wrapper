@@ -42,8 +42,8 @@ do
 			clear 
 		 ;;
 	 	9) clear
-			printf "Bye bye! o/"
-			exit
+			printf "Bye bye! o/\n"
+			exit ;;
 		*) clear
 			printf "Not implemented\n"
 			sleep 5
