@@ -54,14 +54,7 @@ do
 	read ACH_GRT_VAR
 	case "$ACH_GRT_VAR" in
 		1) clear 
-			printf "Input target player username (or player target selector): "
-			read TARGET
-			printf "Input advancement resource location: "
-			read RESOURCE_LOCATION
-			clear
-			OUTPUT=$(grant_only_advancement 2>&1)
-			printf '%s\n' "$OUTPUT"
-			wait_for_user
+			advancement_grant_menu_only
 		;;
 		
 		2) clear
@@ -104,6 +97,45 @@ do
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
+		9) break ;;
+		*) ;;
+	esac
+done
+}
+
+#
+# LEVEL 4 ADVANCEMENTS
+#
+
+advancement_grant_menu_only() {
+while :
+do
+	clear 
+	printf "ADVANCEMENT GRANT ONLY MENU\n1. ADVANCEMENT\n2. ADVANCEMENT CRITERION\n9. EXIT\n"
+	read ACH_GRT_ONL_VAR
+	case "$ACH_GRT_ONL_VAR" in
+		1) clear
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			clear
+			OUTPUT=$(grant_only_advancement 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+			;;
+		2) clear
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			printf "Input advancement criterion resource location: "
+			read CRITERION_RESOURCE_LOCATION
+			clear
+			OUTPUT=$(grant_only_criterion_advancement 2>&1)
+			print '%s\n' "OUTPUT"
+			wait_for_user
+			;;
 		9) break ;;
 		*) ;;
 	esac

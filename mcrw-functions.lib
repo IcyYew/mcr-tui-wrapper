@@ -30,7 +30,7 @@ wait_for_user() {
 }
 
 grant_only_advancement() {
-	rcon "advancement grant ${TARGET} only minecraft:${RESOURCE_LOCATION}"
+	rcon "advancement grant ${TARGET} only ${RESOURCE_LOCATION}"
 	STATUS=$?
 }
 
@@ -39,9 +39,13 @@ grant_every_advancement() {
 }
 
 revoke_only_advancement() {
-	rcon "advancement revoke ${TARGET} only minecraft:${RESOURCE_LOCATION}"
+	rcon "advancement revoke ${TARGET} only ${RESOURCE_LOCATION}"
 }
 
 revoke_every_advancement() {
 	rcon "advancement revoke ${TARGET} everything"
+}
+
+grant_only_advancement_criterion() {
+	rcon "advancement grant ${TARGET} only ${RESOURCE_LOCATION} ${CRITERION_RESOURCE_LOCATION}"
 }
