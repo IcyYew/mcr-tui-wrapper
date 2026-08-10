@@ -8,6 +8,9 @@
 #
 #
 
+# Temporary list of options for easy adding prior to TUI
+OPTS_LIST="users, tellall"
+
 # Variable definitions for visibility, all are actually sourced from .env, if you do not have a .env run init.sh and input your values
 RCON_HOST="${RCON_HOST}"
 RCON_PORT="${RCON_PORT}"
@@ -53,7 +56,7 @@ tellall() {
 # No command handling
 if [ -z "$COMMAND" ]; then
 	echo "ERR: NO CMD"
-	echo "Viable opts: [ users ]"
+	echo "Viable opts: [ ${OPTS_LIST} ]"
 	exit 1
 fi
 
@@ -67,7 +70,7 @@ case "$COMMAND" in
 		;;
 	*)
 		echo "Fallback"
-		echo "Viable opts: [ users ]"
+		echo "Viable opts: [ ${OPTS_LIST} ]"
 		exit 1
 		;;
 esac
