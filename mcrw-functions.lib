@@ -18,6 +18,7 @@ tellall() {
 	echo $TEXT
 }
 
+# Waits for the user to press any number of characters followed by a terminating character
 wait_for_user() {
 	read X
 }
