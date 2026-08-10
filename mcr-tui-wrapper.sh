@@ -1,7 +1,7 @@
 #!/bin/sh
 
 . ./.env
-
+. ./mcrw-functions.lib
 #
 #
 # 	ENV VARS
