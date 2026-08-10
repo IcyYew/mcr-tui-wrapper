@@ -54,7 +54,7 @@ do
 			wait_for_user
 		 ;;
 		3) 
-			advancement_menu
+			advancements_menu
 		;;
 		 # Case 9 obvious
 	 	9) clear

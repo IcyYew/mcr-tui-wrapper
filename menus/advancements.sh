@@ -1,6 +1,5 @@
 # Advancements Menu Script
 
-. ../mcrw-functions.lib
 
 
 
