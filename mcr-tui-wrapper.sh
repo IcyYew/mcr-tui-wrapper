@@ -22,7 +22,7 @@ rcon() {
 }
 
 list() {
-	rcon list
+	rcon 'list'
 }
 
 if [ -z "$COMMAND" ]; then
