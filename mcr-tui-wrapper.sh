@@ -14,6 +14,7 @@ MCRCON_PATH="${MCRCON_PATH}"
 MCRCON="${MCRCON_PATH}"
 
 COMMAND=$1
+OPTS=$2
 
 rcon() {
 	"$MCRCON" \
@@ -26,6 +27,10 @@ list() {
 	rcon 'list'
 }
 
+tellall() {
+	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold","extra":[{"text":"${OPTS}","color":"yellow","bold":false,"italic":true}]}'
+}
+
 if [ -z "$COMMAND" ]; then
 	echo "ERR: NO CMD"
 	echo "Viable opts: [ users ]"
@@ -35,6 +40,9 @@ fi
 case "$COMMAND" in
 	"users")
 		list
+		;;
+	"tellall")
+		tellall
 		;;
 	*)
 		echo "Fallback"
