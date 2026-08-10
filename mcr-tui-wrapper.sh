@@ -8,11 +8,6 @@
 #
 #
 
-SLEEP_INTERVAL=2
-
-# Temporary list of options for easy adding prior to TUI
-OPTS_LIST="users, tellall"
-
 # Variable definitions for visibility, all are actually sourced from .env, if you do not have a .env run init.sh and input your values
 RCON_HOST="${RCON_HOST}"
 RCON_PORT="${RCON_PORT}"
@@ -47,6 +42,8 @@ do
 		 ;;
 	 	9) clear
 			printf "Bye bye! o/\n"
+			wait_for_user
+			clear
 			exit
 		;;
 		*) clear
