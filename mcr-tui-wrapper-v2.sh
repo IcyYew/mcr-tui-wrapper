@@ -18,8 +18,7 @@ RCON_PASSWORD="${RCON_PASSWORD}"
 MCRCON_PATH="${MCRCON_PATH}"
 MCRCON="${MCRCON_PATH}"
 
-SELECTION_VAR=1
-while [ $SELECTION_VAR -ne 9 ]
+while :
 do
 	clear
 	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n9. EXIT\n"
@@ -36,6 +35,7 @@ do
 		 ;;
 	 	9) clear
 			printf "Bye bye! o/\n"
+			exit
 		;;
 		*) clear
 			printf "Not implemented\n"
