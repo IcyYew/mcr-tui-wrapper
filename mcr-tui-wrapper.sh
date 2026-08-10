@@ -35,7 +35,7 @@ do
 			printf "Input text to send to all users: "
 			read TEXT
 			OUTPUT=$(tellall 2>&1)
-			if [ "$OUTPUT" = 0 ]; then
+			if [ -n "$OUTPUT" ]; then
 				printf "\nMessage not sent"
 				wait_for_user
 			else

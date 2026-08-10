@@ -19,8 +19,5 @@ tellall() {
 }
 
 wait_for_user() {
-	while [ -n "$X" ]
-	do
-		read X
-	done
+	read X
 }
