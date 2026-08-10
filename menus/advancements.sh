@@ -1,29 +1,28 @@
 # Advancements Menu Script
 
+#
+# LAYER 1 ADVANCEMENTS
+#
 
-
-
-advancement_grant_menu() {	
+advancements_menu() {	
 while :
 do
 	clear
-	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
-	read ACH_GRT_VAR
-	case "$ACH_GRT_VAR" in
-		1) 
-			printf "Input target player username: "
-			read USER_NAME
-			printf "Input advancement resource location: "
-			read RESOURCE_LOCATION
-			OUTPUT=$(grant_only_advancement 2>&1)
-			printf '%s\n' "$OUTPUT"
-			wait_for_user
-			;;
+	printf "ADVANCEMENTS MENU\n1. ADVANCEMENT MANAGEMENT\n2. ADVANCEMENT FETCHING\n9. EXIT\n"
+	read ACH_SELECT_VAR
+	case "$ACH_SELECT_VAR" in
+		1)
+			advancement_management_menu ;;
+		2) ;;
 		9) break ;;
-		*) ;;
+		*) printf "Not an option" ;;
 	esac
 done
 }
+
+#
+# LAYER 2 ADVANCEMENTS
+#
 
 advancement_management_menu() {
 	
@@ -43,18 +42,40 @@ do
 done
 }
 
-advancements_menu() {	
+#
+# LAYER 3 ADVANCEMENTS
+#
+
+advancement_grant_menu() {	
 while :
 do
 	clear
-	printf "ADVANCEMENTS MENU\n1. ADVANCEMENT MANAGEMENT\n2. ADVANCEMENT FETCHING\n9. EXIT\n"
-	read ACH_SELECT_VAR
-	case "$ACH_SELECT_VAR" in
-		1)
-			advancement_management_menu ;;
-		2) ;;
+	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
+	read ACH_GRT_VAR
+	case "$ACH_GRT_VAR" in
+		1) 
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			GRANT_TYPE="only"
+			OUTPUT=$(grant_advancement 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
+		
+		2)
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			GRANT_TYPE="everything"
+			OUTPUT=$(grant_advancement 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
 		9) break ;;
-		*) printf "Not an option" ;;
+		*) ;;
 	esac
 done
 }
