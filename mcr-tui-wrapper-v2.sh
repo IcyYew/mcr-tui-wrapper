@@ -8,6 +8,8 @@
 #
 #
 
+SLEEP_INTERVAL=2
+
 # Temporary list of options for easy adding prior to TUI
 OPTS_LIST="users, tellall"
 
@@ -25,13 +27,22 @@ do
 	read SELECTION_VAR
 	case "$SELECTION_VAR" in
 		1) clear
-			list 
-			sleep 5
+			OUTPUT=$(list 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
 		 ;;
 		2) clear
-			printf '[PID %s] Input text to send to all users: ' "$$"
+			printf "Input text to send to all users: "
 			read TEXT
-			tellall
+			OUTPUT=$(tellall 2>&1)
+			if [ "$OUTPUT" = 0 ]; then
+				printf "\nMessage not sent"
+				wait_for_user
+			else
+				printf '%s\n' "$OUTPUT"
+				wait_for_user
+			fi
+
 		 ;;
 	 	9) clear
 			printf "Bye bye! o/\n"

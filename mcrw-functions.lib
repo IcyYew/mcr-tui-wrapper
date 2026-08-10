@@ -15,4 +15,12 @@ list() {
 # via cli and defines the message itself
 tellall() {
 	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold","extra":[{"text":"'${TEXT}'","color":"yellow","bold":false,"italic":true}]}'
+	echo $TEXT
+}
+
+wait_for_user() {
+	while [ -n "$X" ]
+	do
+		read X
+	done
 }
