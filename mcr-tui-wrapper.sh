@@ -21,6 +21,7 @@ list() {
 
 if [ -z "$COMMAND" ]; then
 	echo "ERR: NO CMD"
+	echo "Viable opts: [ users ]"
 	exit 1
 fi
 
@@ -30,6 +31,7 @@ case "$COMMAND" in
 		;;
 	*)
 		echo "Fallback"
+		echo "Viable opts: [ users ]"
 		exit 1
 		;;
 esac
