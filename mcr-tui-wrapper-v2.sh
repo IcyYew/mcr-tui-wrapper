@@ -33,18 +33,21 @@ do
 			list 
 			sleep 5
 			clear 
-			continue ;;
+		 ;;
 		2) clear
 			printf "Input text to send to all users: "
 			read OPTS
 			tellall
 			OPTS=$2
 			clear 
-			continue ;;
+		 ;;
+	 	9) clear
+			printf "Bye bye! o/"
+			exit
 		*) clear
 			printf "Not implemented\n"
 			sleep 5
 			clear 
-			continue ;;
+		;;
 	esac
 done
