@@ -11,9 +11,6 @@ RCON_PASSWORD="${RCON_PASSWORD}"
 # Set path to mcrcon exe, if env then mcrcon (or whatever it's command is
 MCRCON_PATH="${MCRCON_PATH}"
 
-# Take in init.sh output
-eval "$(./init.sh)"
-
 MCRCON="${MCRCON_PATH}"
 
 $MCRCON -H $RCON_HOST -p $RCON_PASSWORD list
