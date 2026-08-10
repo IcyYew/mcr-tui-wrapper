@@ -15,8 +15,14 @@ MCRCON="${MCRCON_PATH}"
 
 COMMAND=$1
 
+rcon() {
+	"$MCRCON" \
+		-H "$RCON_HOST" \
+		-p "$RCON_PASS"
+}
+
 list() {
-	"$MCRCON" -H "$RCON_HOST" -p "$RCON_PASSWORD" list
+	rcon list
 }
 
 if [ -z "$COMMAND" ]; then
