@@ -59,6 +59,7 @@ do
 			read TARGET
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
+			clear
 			OUTPUT=$(grant_only_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
@@ -67,6 +68,7 @@ do
 		2)
 			printf "Input target player username (or player target selector): "
 			read TARGET
+			clear
 			OUTPUT=$(grant_every_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
@@ -89,6 +91,7 @@ do
 			read TARGET
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
+			clear
 			OUTPUT=$(revoke_only_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
@@ -97,6 +100,7 @@ do
 		2)
 			printf "Input target player username (or player target selector): "
 			read TARGET
+			clear
 			OUTPUT=$(revoke_every_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
