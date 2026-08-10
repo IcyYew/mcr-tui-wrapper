@@ -30,7 +30,7 @@ do
 			sleep 5
 		 ;;
 		2) clear
-			printf "Input text to send to all users: "
+			printf '[PID %s] Input text to send to all users: ' "$$"
 			read TEXT
 			tellall
 		 ;;
@@ -42,5 +42,4 @@ do
 			sleep 5
 		;;
 	esac
-	clear
 done
