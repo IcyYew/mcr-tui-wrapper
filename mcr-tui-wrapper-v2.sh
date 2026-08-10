@@ -29,12 +29,22 @@ do
 	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n9. EXIT\n"
 	read SELECTION_VAR
 	case $SELECTION_VAR in
-		1) list ;;
+		1) clear
+			list 
+			sleep 5
+			clear 
+			continue ;;
 		2) clear
 			printf "Input text to send to all users: "
 			read OPTS
 			tellall
-			OPTS=$2 ;;
-		*) printf "Not implemented\n" ;;
+			OPTS=$2
+			clear 
+			continue ;;
+		*) clear
+			printf "Not implemented\n"
+			sleep 5
+			clear 
+			continue ;;
 	esac
 done
