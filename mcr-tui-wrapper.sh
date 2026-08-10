@@ -8,6 +8,8 @@
 #
 #
 
+SLEEP_INTERVAL=2
+
 # Temporary list of options for easy adding prior to TUI
 OPTS_LIST="users, tellall"
 
@@ -18,35 +20,37 @@ RCON_PASSWORD="${RCON_PASSWORD}"
 MCRCON_PATH="${MCRCON_PATH}"
 MCRCON="${MCRCON_PATH}"
 
-# Placeholder arguments prior to TUI implementation
-COMMAND=$1
-OPTS=$2
+while :
+do
+	clear
+	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n9. EXIT\n"
+	read SELECTION_VAR
+	case "$SELECTION_VAR" in
+		1) clear
+			OUTPUT=$(list 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		 ;;
+		2) clear
+			printf "Input text to send to all users: "
+			read TEXT
+			OUTPUT=$(tellall 2>&1)
+			if [ "$OUTPUT" = 0 ]; then
+				printf "\nMessage not sent"
+				wait_for_user
+			else
+				printf '%s\n' "$OUTPUT"
+				wait_for_user
+			fi
 
-#
-#
-# Mostly placeholder command handling for proof of concept
-#
-#
-
-# No command handling
-if [ -z "$COMMAND" ]; then
-	echo "ERR: NO CMD"
-	echo "Viable opts: [ ${OPTS_LIST} ]"
-	exit 1
-fi
-
-# Case for different commands, again mostly placeholder prior to TUI
-case "$COMMAND" in
-	"users")
-		list
+		 ;;
+	 	9) clear
+			printf "Bye bye! o/\n"
+			exit
 		;;
-	"tellall")
-		tellall
+		*) clear
+			printf "Not implemented\n"
+			sleep 5
 		;;
-	*)
-		echo "Fallback"
-		echo "Viable opts: [ ${OPTS_LIST} ]"
-		exit 1
-		;;
-esac
-
+	esac
+done
