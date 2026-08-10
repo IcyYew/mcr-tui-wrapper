@@ -133,7 +133,7 @@ do
 			read CRITERION_RESOURCE_LOCATION
 			clear
 			OUTPUT=$(grant_only_criterion_advancement 2>&1)
-			printf '%s\n' "OUTPUT"
+			printf '%s\n' "$OUTPUT"
 			wait_for_user
 			;;
 		9) break ;;
