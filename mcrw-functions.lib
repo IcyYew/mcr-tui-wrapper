@@ -29,7 +29,7 @@ wait_for_user() {
 	read X
 }
 
-grant_only_achievement() {
-	rcon 'achievement grant ${USER_NAME} only minecraft:${RESOURCE_LOCATION}'
+grant_only_advancement() {
+	rcon "advancement grant ${USER_NAME} only minecraft:${RESOURCE_LOCATION}"
 	STATUS=$?
 }

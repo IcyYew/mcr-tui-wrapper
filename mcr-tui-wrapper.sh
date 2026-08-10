@@ -79,7 +79,7 @@ do
 												read USER_NAME
 												printf "Input advancement resource location: "
 												read RESOURCE_LOCATION
-												OUTPUT=$(grant_only_achievement 2>&1)
+												OUTPUT=$(grant_only_advancement 2>&1)
 												printf '%s\n' "$OUTPUT"
 												wait_for_user
 												;;
