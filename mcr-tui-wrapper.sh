@@ -40,7 +40,7 @@ do
 				printf "\nMessage not sent"
 				wait_for_user
 			else
-				printf '%s\n' "$OUTPUT"
+				printf 'You sent the message: %s\n' "$OUTPUT"
 				wait_for_user
 			fi
 
@@ -51,7 +51,7 @@ do
 		;;
 		*) clear
 			printf "Not implemented\n"
-			sleep 5
+			wait_for_user
 		;;
 	esac
 done
