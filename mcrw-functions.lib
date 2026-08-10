@@ -14,5 +14,5 @@ list() {
 # Send a message to all users on the server as server, calls to rcon function with defined "tellall" tellraw passed as argument, OPTS var is passed
 # via cli and defines the message itself
 tellall() {
-	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold","extra":[{"text":"'${OPTS}'","color":"yellow","bold":false,"italic":true}]}'
+	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold","extra":[{"text":"'${TEXT}'","color":"yellow","bold":false,"italic":true}]}'
 }

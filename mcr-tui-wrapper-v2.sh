@@ -18,36 +18,29 @@ RCON_PASSWORD="${RCON_PASSWORD}"
 MCRCON_PATH="${MCRCON_PATH}"
 MCRCON="${MCRCON_PATH}"
 
-# Placeholder arguments prior to TUI implementation
-COMMAND=$1
-OPTS=$2
-
-SELECTION_VAR=1
 
 while [ $SELECTION_VAR -ne 9 ]
 do
+	clear
 	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n9. EXIT\n"
 	read SELECTION_VAR
-	case $SELECTION_VAR in
+	case "$SELECTION_VAR" in
 		1) clear
 			list 
 			sleep 5
-			clear 
 		 ;;
 		2) clear
 			printf "Input text to send to all users: "
-			read OPTS
+			read TEXT
 			tellall
-			OPTS=$2
-			clear 
 		 ;;
 	 	9) clear
 			printf "Bye bye! o/\n"
-			exit ;;
+		;;
 		*) clear
 			printf "Not implemented\n"
 			sleep 5
-			clear 
 		;;
 	esac
+	clear
 done
