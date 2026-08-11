@@ -7,5 +7,13 @@
 #   [ OPT IF EVRYTNG MOD] RESOURCE_LOCATION: advancement namespace
 #   [ OPT & DEP-ON-ONLY ] RESOURCE_CRITERION_LOCATION: advancement criterion namespace
 abstract_advancement_function() {
-	
+	FUNC_STR="advancement $ACTION_TYPE $TARGET $MODIFIER "
+	if [ "$MODIFIER" = "everything" ]; then
+		return FUNC_STR
+	else
+		if [ -n "$RESOURCE_CRITERION_LOCATION ]; then
+			FUNC_STR+="$RESOURCE_LOCATION $RESOURCE_CRITERION_LOCATION"
+		fi
+		FUNC_STR+="RESOURCE_LOCATION"
+	fi
 }
