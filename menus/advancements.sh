@@ -139,56 +139,21 @@ do
 	read ACH_GRT_VAR
 	ACTION_TYPE="revoke"
 	case "$ACH_GRT_VAR" in
-		1) clear
-			printf "Input target player username (or player target selector): "
-			read TARGET
-			printf "Input advancement resource location: "
-			read RESOURCE_LOCATION
-			clear
-			OUTPUT=$(only_advancement 2>&1)
-			printf '%s\n' "$OUTPUT"
-			wait_for_user
+		1) FUNC_NAME="only_advancement"
+			grant_revoke_menu_abstract 
 		;;
 		
-		2) clear
-			printf "Input target player username (or player target selector): "
-			read TARGET
-			printf "Input advancement resource location: "
-			read RESOURCE_LOCATION
-			clear
-			OUTPUT=$(every_advancement 2>&1)
-			printf '%s\n' "$OUTPUT"
-			wait_for_user
+		2) FUNC_NAME="every_advancement"
+			grant_revoke_menu_abstract
 		;;
-		3) clear
-			printf "Input target player username (or player target selector): "
-			read TARGET
-			printf "Input advancement resource location: "
-			read RESOURCE_LOCATION
-			clear
-			OUTPUT=$(child_advancements 2>&1)
-			printf '%s\n' "$OUTPUT"
-			wait_for_user
+		3) FUNC_NAME="child_advancements"
+			grant_revoke_menu_abstract
 		;;
-		4) clear
-			printf "Input target player username (or player target selector): "
-			read TARGET
-			printf "Input advancement resource location: "
-			read RESOURCE_LOCATION
-			clear
-			OUTPUT=$(parent_advancements 2>&1)
-			printf '%s\n' "$OUTPUT"
-			wait_for_user
+		4) FUNC_NAME="parent_advancements"
+			grant_revoke_menu_abstract
 		;;
-		5) clear
-			printf "Input target player username (or player target selector): "
-			read TARGET
-			printf "Input advancement resource location: "
-			read RESOURCE_LOCATION
-			clear
-			OUTPUT=$(child_and_parent_advancements 2>&1)
-			printf '%s\n' "$OUTPUT"
-			wait_for_user
+		5) FUNC_NAME="child_and_parent_advancements"
+			grant_revoke_menu_abstract
 		;;
 		9) break ;;
 		*) ;;
