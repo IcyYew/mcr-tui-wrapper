@@ -189,6 +189,36 @@ do
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
+		3) clear
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			clear
+			OUTPUT=$(revoke_child_advancements 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
+		4)
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			clear
+			OUTPUT=$(revoke_parent_advancements 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
+		5)
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			clear
+			OUTPUT=$(revoke_child_and_parent_advancements 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
 		9) break ;;
 		*) ;;
 	esac

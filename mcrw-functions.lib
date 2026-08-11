@@ -65,3 +65,15 @@ grant_parent_advancements() {
 grant_child_and_parent_advancements() {
 	rcon "advancement grant ${TARGET} through ${RESOURCE_LOCATION}"
 }
+
+revoke_child_advancements() {
+	rcon "advancement revoke ${TARGET} from ${RESOURCE_LOCATION}"
+}
+
+revoke_parent_advancements() {
+	rcon "advancement revoke ${TARGET} until ${RESOURCE_LOCATION}"
+}
+
+revoke_child_and_parent_advancements() {
+	rcon "advancement revoke ${TARGET} through ${RESOURCE_LOCATION}"
+}
