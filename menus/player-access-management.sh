@@ -33,6 +33,7 @@ do
 		3)
 			clear
 			list_banlist
+			wait_for_user
 
 		;;
 		4)
@@ -40,6 +41,7 @@ do
 			printf "Input IP address: "
 			read IP_ADDR
 			ban_ip
+			wait_for_user
 
 		;;
 		5)
@@ -47,6 +49,7 @@ do
 			print "Input IP address: "
 			read IP_ADDR
 			unban_ip
+			wait_for_user
 
 		;;
 		6) whitelist_management_menu ;;
