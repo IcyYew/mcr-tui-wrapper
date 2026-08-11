@@ -1,3 +1,7 @@
 ban_player() {
 	rcon "ban $TARGET $REASON"
 }
+
+unban_player() {
+	rcon "pardon $TARGET"
+}

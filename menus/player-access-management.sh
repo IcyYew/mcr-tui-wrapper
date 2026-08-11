@@ -16,7 +16,7 @@ do
 	case $PA_MGM_VAR in
 		1)	
 			clear
-			printf "Input player username(s) or player-type target selector: "
+			printf "Input player username or player-type target selector: "
 			read TARGET
 			printf "Input ban reason: "
 			read REASON
@@ -24,7 +24,11 @@ do
 			wait_for_user
 		;;
 		2) 
-
+			clear
+			printf "Input player username or player-type target selector: "
+			read TARGET
+			unban_player "$TARGET"
+			wait_for_user
 		;;
 		3)
 
@@ -35,8 +39,8 @@ do
 		5)
 
 		;;
-		9) printf "Invalid option";;
-	*) ;;
+		9) break ;;
+		*) printf "Invalid option" ;;
 	esac
 done
 }
