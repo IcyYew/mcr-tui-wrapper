@@ -40,15 +40,15 @@ do
 			clear
 			printf "Input IP address: "
 			read IP_ADDR
-			ban_ip
+			ban_ip "$IP_ADDR"
 			wait_for_user
 
 		;;
 		5)
 			clear
-			print "Input IP address: "
+			printf "Input IP address: "
 			read IP_ADDR
-			unban_ip
+			unban_ip "$IP_ADDR"
 			wait_for_user
 
 		;;
@@ -69,19 +69,19 @@ whitelist_management_menu() {
 while :
 do
 	clear
-	printf "WHITELIST MANAGEMENT MENU\n1. ADD USER(S)\n2. REMOVE USER(S)\n3. WHITELISTED USERS\n4. WHITELIST ON\n5. WHITELIST OFF\n9. BACK\n"
+	printf "WHITELIST MANAGEMENT MENU\n1. ADD USER\n2. REMOVE USER\n3. WHITELISTED USERS\n4. WHITELIST ON\n5. WHITELIST OFF\n9. BACK\n"
 	read WL_MGM_VAR
 	case $WL_MGM_VAR in
 		1)
 			clear
-			printf "Input username(s): "
+			printf "Input username: "
 			read TARGET
 			whitelist_add_user "$TARGET"
 			wait_for_user
 		;;
 		2)
 			clear
-			printf "Input username(s): "
+			printf "Input username: "
 			read TARGET
 			whitelist_remove_user "$TARGET"
 			wait_for_user
