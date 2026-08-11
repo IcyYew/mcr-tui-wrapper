@@ -10,23 +10,6 @@
 . ./libs/advancements.lib
 
 . ./menus/advancements.sh
-#
-#
-# 	ENV VARS
-#
-#
-
-# These can be removed at some point since all rcon communications are handled in function libaries
-# Variable definitions for visibility, all are actually sourced from .env, if you do not have a .env run init.sh and input your values
-RCON_HOST="${RCON_HOST}"
-RCON_PORT="${RCON_PORT}"
-RCON_PASSWORD="${RCON_PASSWORD}"
-MCRCON_PATH="${MCRCON_PATH}"
-MCRCON="${MCRCON_PATH}"
-
-# Likely useless abstraction, once the TUI becomes multiple "pages" these may improve readability
-MENU_LAYER_1_OPTIONS=""
-MENU_LAYER_1=""
 
 # Main TUI loop
 while :
