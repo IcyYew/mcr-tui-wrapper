@@ -16,9 +16,14 @@ do
 	case "$ACH_SELECT_VAR" in
 		1) advancement_management_menu ;;
 		2) advancement_criterion_management_menu ;;
+		3) clear
+			printf "Not currently supported"
+			wait_for_user
+		;;
 		9) break ;;
 		*) clear 
-			printf "Invalid option" 
+			printf "Invalid option"
+			wait_for_user
 		;;
 	esac
 done
@@ -68,7 +73,8 @@ do
 		;;
 		9) break ;;
 		*) clear
-			printf "Invalid option" 
+			printf "Invalid option"
+			wait_for_user
 		;;
 	esac
 done
@@ -87,7 +93,8 @@ do
 		2) advancement_revoke_menu ;;
 		9) break ;;
 		*) clear
-			printf "Invalid option" 
+			printf "Invalid option"
+			wait_for_user
 		;;
 	esac
 done
@@ -124,6 +131,7 @@ do
 		9) break ;;
 		*) clear
 			printf "Invalid option"
+			wait_for_user
 		;;
 	esac
 done
@@ -154,7 +162,10 @@ do
 			grant_revoke_menu_abstract
 		;;
 		9) break ;;
-		*) ;;
+		*) clear
+			printf "Invalid option" 
+			wait_for_user
+		;;
 	esac
 done
 }

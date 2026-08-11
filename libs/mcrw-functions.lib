@@ -26,14 +26,5 @@ tellall() {
 
 # Waits for the user to press any number of characters followed by a terminating character
 wait_for_user() {
-	read X
-}
-
-revoke_child_advancements() {
-	rcon "advancement revoke ${TARGET} from ${RESOURCE_LOCATION}"
-}
-
-revoke_parent_advancements() {
 	rcon "advancement revoke ${TARGET} until ${RESOURCE_LOCATION}"
 }
-
