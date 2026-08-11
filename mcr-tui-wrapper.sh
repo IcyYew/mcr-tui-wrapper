@@ -33,7 +33,7 @@ while :
 do
 	# Clean up screen
 	clear
-	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n3. ACHIEVEMENTS MENU\n9. EXIT\n"
+	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n3. ADVANCEMENTS MENU\n9. EXIT\n"
 	read SELECTION_VAR
 	case "$SELECTION_VAR" in
 		# Case 1 lists all active users and quantity of users
