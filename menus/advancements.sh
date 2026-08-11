@@ -167,7 +167,7 @@ advancement_revoke_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
+	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
 	read ACH_GRT_VAR
 	case "$ACH_GRT_VAR" in
 		1) clear
