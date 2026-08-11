@@ -46,6 +46,10 @@ revoke_every_advancement() {
 	rcon "advancement revoke ${TARGET} everything"
 }
 
-grant_only_advancement_criterion() {
+grant_advancement_criterion() {
 	rcon "advancement grant ${TARGET} only ${RESOURCE_LOCATION} ${CRITERION_RESOURCE_LOCATION}"
+}
+
+revoke_advancement_criterion() {
+	rcon "advancement revoke ${TARGET} only ${RESOURCE_LOCATION} ${CRITERION_RESOURCE_LOCATION}"
 }
