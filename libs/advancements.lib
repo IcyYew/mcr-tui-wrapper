@@ -40,13 +40,13 @@ child_and_parent_advancements() {
 
 
 advancements_function() {
-	CMD_STR="advancement ${ACTION_TYPE} ${TARGET} ${MODIFIER}"
+	CMD_STR="advancement $1 ${TARGET} $3"
 	if [ "$MODIFIER" != "everything" ]; then
-		CMD_STR+=" ${RESOURCE_LOCATION}"
+		CMD_STR="$CMD_STR ${RESOURCE_LOCATION}"
 
-		if [ -n CRITERION_RESOURCE_LOCATION ]; then
-			CMD_STR+=" ${CRITERION_RESOURCE_LOCATION}"
+		if [ -n "$CRITERION_RESOURCE_LOCATION" ]; then
+			CMD_STR="$CMD_STR ${CRITERION_RESOURCE_LOCATION}"
 		fi
 	fi
-	rcon "CMD_STR"
+	rcon "${CMD_STR}"
 }
