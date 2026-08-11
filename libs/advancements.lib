@@ -2,7 +2,9 @@ grant_revoke_menu_abstract() {
 	clear 
 	printf "Input target player username (or player target selector): "
 	read TARGET
-	printf "Input advancement resource location: "
+	if [ "$FUNC_NAME" != "every_advancement" ]; then
+		printf "Input advancement resource location: "
+	fi
 	read RESOURCE_LOCATION
 	clear
 	OUTPUT=$($FUNC_NAME 2>&1)

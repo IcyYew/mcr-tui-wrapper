@@ -108,8 +108,7 @@ do
 	case "$ACH_GRT_VAR" in
 		1) FUNC_NAME="only_advancement"
 			grant_revoke_menu_abstract 
-		;;
-		
+		;;		
 		2) FUNC_NAME="every_advancement"
 			grant_revoke_menu_abstract
 		;;
@@ -142,7 +141,6 @@ do
 		1) FUNC_NAME="only_advancement"
 			grant_revoke_menu_abstract 
 		;;
-		
 		2) FUNC_NAME="every_advancement"
 			grant_revoke_menu_abstract
 		;;
