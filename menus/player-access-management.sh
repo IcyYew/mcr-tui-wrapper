@@ -76,14 +76,14 @@ do
 			clear
 			printf "Input username(s): "
 			read TARGET
-			whitelist_add_user
+			whitelist_add_user "$TARGET"
 			wait_for_user
 		;;
 		2)
 			clear
 			printf "Input username(s): "
 			read TARGET
-			whitelist_remove_user
+			whitelist_remove_user "$TARGET"
 			wait_for_user
 
 		;;
