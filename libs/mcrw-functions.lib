@@ -1,6 +1,6 @@
 # rcon function for base mcrcon calls, uses env vars and one input argument (the mc server command to be executed)
 rcon() {
-	"$MCRCON" \
+	"$MCRCON_PATH" \
 		-H "$RCON_HOST" \
 		-p "$RCON_PASSWORD" \
 		"$1"
@@ -14,7 +14,7 @@ list() {
 # Send a message to all users on the server as server, calls to rcon function with defined "tellall" tellraw passed as argument, OPTS var is passed
 # via cli and defines the message itself
 tellall() {
-	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold", \"extra":[{"text":"'${$1}'","color":"yellow","bold":false,"italic":true}]}'
+	rcon 'tellraw @a {"text":"[Server] ","bold":true,"color":"gold", \"extra":[{"text":"'$1'","color":"yellow","bold":false,"italic":true}]}'
 	STATUS=$?
 	if [ "$STATUS" = 1 ]; then
 		printf '%s\n' "$1"
