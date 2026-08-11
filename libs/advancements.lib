@@ -4,8 +4,8 @@ grant_revoke_menu_abstract() {
 	read TARGET
 	if [ "$FUNC_NAME" != "every_advancement" ]; then
 		printf "Input advancement resource location: "
+		read RESOURCE_LOCATION
 	fi
-	read RESOURCE_LOCATION
 	clear
 	OUTPUT=$($FUNC_NAME 2>&1)
 	printf '%s\n' "$OUTPUT"
