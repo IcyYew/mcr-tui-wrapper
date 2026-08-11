@@ -111,22 +111,21 @@ do
 	clear
 	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
 	read ACH_GRT_VAR
-	ACTION_TYPE="grant"
 	case "$ACH_GRT_VAR" in
 		1) 
-			grant_revoke_menu_abstract "$ACTION_TYPE" "only"
+			grant_revoke_menu_abstract "grant" "only"
 		;;		
-		2) FUNC_NAME="every_advancement"
-			grant_revoke_menu_abstract
+		2) 
+			grant_revoke_menu_abstract "grant" "everything"
 		;;
-		3) FUNC_NAME="child_advancements"
-			grant_revoke_menu_abstract
+		3)
+			grant_revoke_menu_abstract "grant" "from"
 		;;
-		4) FUNC_NAME="parent_advancements"
-			grant_revoke_menu_abstract
+		4) 
+			grant_revoke_menu_abstract "grant" "until"
 		;;
-		5) FUNC_NAME="child_and_parent_advancements"
-			grant_revoke_menu_abstract
+		5) 
+			grant_revoke_menu_abstract "grant" "through"
 		;;
 		9) break ;;
 		*) clear
