@@ -143,22 +143,21 @@ do
 	clear
 	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
 	read ACH_REV_VAR
-	ACTION_TYPE="revoke"
 	case "$ACH_REV_VAR" in
-		1) FUNC_NAME="only_advancement"
-			grant_revoke_menu_abstract 
+		1) 
+			grant_revoke_menu_abstract "revoke" "only" 
 		;;
-		2) FUNC_NAME="every_advancement"
-			grant_revoke_menu_abstract
+		2) 
+			grant_revoke_menu_abstract "revoke" "everything"
 		;;
-		3) FUNC_NAME="child_advancements"
-			grant_revoke_menu_abstract
+		3) 
+			grant_revoke_menu_abstract "revoke" "from"
 		;;
-		4) FUNC_NAME="parent_advancements"
-			grant_revoke_menu_abstract
+		4) 
+			grant_revoke_menu_abstract "revoke" "until"
 		;;
-		5) FUNC_NAME="child_and_parent_advancements"
-			grant_revoke_menu_abstract
+		5) 
+			grant_revoke_menu_abstract "revoke" "through"
 		;;
 		9) break ;;
 		*) clear
