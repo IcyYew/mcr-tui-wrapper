@@ -8,7 +8,7 @@
 . ./.env
 . ./libs/mcrw-functions.lib
 . ./libs/advancements.lib
-
+. ./libs/player-access-management.lib
 . ./menus/advancements.sh
 . ./menus/player-access-management.sh
 
