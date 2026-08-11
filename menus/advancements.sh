@@ -4,6 +4,9 @@
 # LAYER 1 ADVANCEMENTS
 #
 
+## Apex advancements menu, submenus: advancement management menu, advancement criterion management menu, advancement fetching
+## Advancement fetching is unlikely to be implemented, unrealistic
+
 advancements_menu() {	
 while :
 do
@@ -14,7 +17,9 @@ do
 		1) advancement_management_menu ;;
 		2) advancement_criterion_management_menu ;;
 		9) break ;;
-		*) printf "Invalid option" ;;
+		*) clear 
+			printf "Invalid option" 
+		;;
 	esac
 done
 }
@@ -22,7 +27,9 @@ done
 #
 # LAYER 2 ADVANCEMENTS
 #
-#
+
+# Advancement criterion management menu allows the granting or revoking of advancement criterions, this can also work on advancements with 
+# only a single criterion (obviously)
 
 advancement_criterion_management_menu() {
 while :
@@ -31,6 +38,7 @@ do
 	printf "ADVANCEMENT CRITERION MANAGEMENT\n1. GRANT CRITERION\n2. REVOKE CRITERION\n9. EXIT\n"
 	read ACH_CRT_MGT_VAR
 	case "$ACH_CRT_MGT_VAR" in
+		# Grants a single advancement criterion to specified target
 		1) 
 			printf "Input target player username (or player target selector): "
 			read TARGET
@@ -43,6 +51,7 @@ do
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
+		# Revokes a single advancement criterion from a specified target
 		2)
 			printf "Input target player username (or player target selector): "
 			read TARGET
@@ -63,6 +72,7 @@ do
 done
 }
 
+# Advancement management menu allows navigation to the advancement granting and revoking submenus
 advancement_management_menu() {
 	
 while :
@@ -71,12 +81,12 @@ do
 	printf "ADVANCEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. EXIT\n"
 	read ACH_MGMT_VAR
 	case "$ACH_MGMT_VAR" in
-		1)advancement_grant_menu
-			;;
-		2) advancement_revoke_menu
-			;;
+		1)advancement_grant_menu ;;
+		2) advancement_revoke_menu ;;
 		9) break ;;
-		*) ;;
+		*) clear
+			printf "Invalid option" 
+		;;
 	esac
 done
 }
@@ -85,11 +95,12 @@ done
 # LAYER 3 ADVANCEMENTS
 #
 
+# Advancement grant menu allows the granting of only one or all advancements to a target
 advancement_grant_menu() {	
 while :
 do
 	clear
-	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n9. EXIT\n"
+	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
 	read ACH_GRT_VAR
 	case "$ACH_GRT_VAR" in
 		1) clear 
@@ -106,17 +117,51 @@ do
 		2) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
 			clear
 			OUTPUT=$(grant_every_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
+		3) clear
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			clear
+			OUTPUT=$(grant_child_advancements 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
+		4)
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			clear
+			OUTPUT=$(grant__parent_advancements 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
+		5)
+			printf "Input target player username (or player target selector): "
+			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
+			clear
+			OUTPUT=$(grant_child_advancements 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
 		9) break ;;
-		*) ;;
+		*) clear
+			printf "Invalid option"
+		;;
 	esac
 done
 }
 
+# Advancement revoke menu allows the revoking of one or all advancements from a target
 advancement_revoke_menu() {
 while :
 do
