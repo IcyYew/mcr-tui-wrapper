@@ -11,7 +11,7 @@ advancements_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENTS MENU\n1. ADVANCEMENT MANAGEMENT\n2. ADVANCEMENT CRITERION MANAGEMENT\n3. ADVANCEMENT FETCHING\n9. EXIT\n"
+	printf "ADVANCEMENTS MENU\n1. ADVANCEMENT MANAGEMENT\n2. ADVANCEMENT CRITERION MANAGEMENT\n3. ADVANCEMENT FETCHING\n9. BACK\n"
 	read ACH_SELECT_VAR
 	case "$ACH_SELECT_VAR" in
 		1) advancement_management_menu ;;
@@ -40,7 +40,7 @@ advancement_criterion_management_menu() {
 while :
 do 
 	clear
-	printf "ADVANCEMENT CRITERION MANAGEMENT\n1. GRANT CRITERION\n2. REVOKE CRITERION\n9. EXIT\n"
+	printf "ADVANCEMENT CRITERION MANAGEMENT\n1. GRANT CRITERION\n2. REVOKE CRITERION\n9. BACK\n"
 	read ACH_CRT_MGT_VAR
 	MOD="only"
 	case "$ACH_CRT_MGT_VAR" in
@@ -85,7 +85,7 @@ advancement_management_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. EXIT\n"
+	printf "ADVANCEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. BACK\n"
 	read ACH_MGMT_VAR
 	case "$ACH_MGMT_VAR" in
 		1) advancement_grant_menu ;;
@@ -108,7 +108,7 @@ advancement_grant_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
+	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. BACK\n"
 	read ACH_GRT_VAR
 	case "$ACH_GRT_VAR" in
 		1) 
@@ -140,7 +140,7 @@ advancement_revoke_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
+	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. BACK\n"
 	read ACH_REV_VAR
 	case "$ACH_REV_VAR" in
 		1) 
