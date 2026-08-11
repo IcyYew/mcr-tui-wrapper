@@ -39,7 +39,7 @@ do
 	read ACH_CRT_MGT_VAR
 	case "$ACH_CRT_MGT_VAR" in
 		# Grants a single advancement criterion to specified target
-		1) 
+		1) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			printf "Input advancement resource location: "
@@ -53,7 +53,7 @@ do
 			wait_for_user
 		;;
 		# Revokes a single advancement criterion from a specified target
-		2)
+		2) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			printf "Input advancement resource location: "
@@ -137,7 +137,7 @@ do
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
-		4)
+		4) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			printf "Input advancement resource location: "
@@ -147,7 +147,7 @@ do
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
-		5)
+		5) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			printf "Input advancement resource location: "
@@ -188,6 +188,8 @@ do
 		2) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
+			printf "Input advancement resource location: "
+			read RESOURCE_LOCATION
 			clear
 			OUTPUT=$(every_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
@@ -203,7 +205,7 @@ do
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
-		4)
+		4) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			printf "Input advancement resource location: "
@@ -213,7 +215,7 @@ do
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
-		5)
+		5) clear
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			printf "Input advancement resource location: "
