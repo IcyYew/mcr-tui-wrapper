@@ -33,5 +33,5 @@ whitelist_list() {
 }
 
 whitelist_toggle() {
-	rcon "whitelist "$1"
+	rcon "whitelist $1"
 }
