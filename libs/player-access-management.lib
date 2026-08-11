@@ -1,0 +1,37 @@
+ban_player() {
+	rcon "ban $1 $2"
+}
+
+unban_player() {
+	rcon "pardon $1"
+}
+
+list_banlist() {
+	rcon "banlist"
+}
+
+ban_ip() {
+	rcon "ban-ip $1"
+}
+
+unban_ip() {
+	rcon "pardon-ip $1"
+}
+
+whitelist_add_user() {
+	rcon "whitelist add $1"
+	rcon "whitelist reload"
+}
+
+whitelist_remove_user() {
+	rcon "whitelist remove $1"
+	rcon "whitelist reload"
+}
+
+whitelist_list() {
+	rcon "whitelist list"
+}
+
+whitelist_toggle() {
+	rcon "whitelist $1"
+}
