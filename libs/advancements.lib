@@ -38,3 +38,15 @@ child_and_parent_advancements() {
 	rcon "advancement ${ACTION_TYPE} ${TARGET} through ${RESOURCE_LOCATION}"
 }
 
+
+advancements_function() {
+	CMD_STR="advancement ${ACTION_TYPE} ${TARGET} ${MODIFIER}"
+	if [ "$MODIFIER" != "everything" ]; then
+		CMD_STR+=" ${RESOURCE_LOCATION}"
+
+		if [ -n CRITERION_RESOURCE_LOCATION ]; then
+			CMD_STR+=" ${CRITERION_RESOURCE_LOCATION}"
+		fi
+	fi
+	rcon "CMD_STR"
+}

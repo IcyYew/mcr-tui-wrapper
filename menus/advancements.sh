@@ -51,9 +51,8 @@ do
 			read RESOURCE_LOCATION
 			printf "Input advancement criterion resource location: "
 			read CRITERION_RESOURCE_LOCATION
-			ACTION_TYPE="grant"
 			clear
-			OUTPUT=$(advancement_criterion 2>&1)
+			OUTPUT=$(advancements_function "$ACTION_TYPE" "$TARGET" "$RESOURCE_LOCATION" "$CRITERION_RESOURCE_LOCATION" 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
