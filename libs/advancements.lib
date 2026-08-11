@@ -14,33 +14,6 @@ grant_revoke_menu_abstract() {
 	wait_for_user
 }
 
-
-only_advancement() {
-	rcon "advancement ${ACTION_TYPE} ${TARGET} only ${RESOURCE_LOCATION}"
-	STATUS=$?
-}
-
-every_advancement() {
-	rcon "advancement ${ACTION_TYPE} ${TARGET} everything"
-}
-
-advancement_criterion() {
-	rcon "advancement ${ACTION_TYPE} ${TARGET} only ${RESOURCE_LOCATION} ${CRITERION_RESOURCE_LOCATION}"
-}
-
-child_advancements() {
-	rcon "advancement ${ACTION_TYPE} ${TARGET} from ${RESOURCE_LOCATION}"
-}
-
-parent_advancements() {
-	rcon "advancement ${ACTION_TYPE} ${TARGET} until ${RESOURCE_LOCATION}"
-}
-
-child_and_parent_advancements() {
-	rcon "advancement ${ACTION_TYPE} ${TARGET} through ${RESOURCE_LOCATION}"
-}
-
-
 advancements_function() {
 	CMD_STR="advancement $1 $2 $3"
 	if [ "$3" != "everything" ]; then
