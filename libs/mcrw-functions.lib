@@ -26,5 +26,6 @@ tellall() {
 
 # Waits for the user to press any number of characters followed by a terminating character
 wait_for_user() {
-	rcon "advancement revoke ${TARGET} until ${RESOURCE_LOCATION}"
+	read X
 }
+
