@@ -42,6 +42,7 @@ do
 	clear
 	printf "ADVANCEMENT CRITERION MANAGEMENT\n1. GRANT CRITERION\n2. REVOKE CRITERION\n9. EXIT\n"
 	read ACH_CRT_MGT_VAR
+	MOD="only"
 	case "$ACH_CRT_MGT_VAR" in
 		# Grants a single advancement criterion to specified target
 		1) clear
@@ -51,9 +52,8 @@ do
 			read RESOURCE_LOCATION
 			printf "Input advancement criterion resource location: "
 			read CRITERION_RESOURCE_LOCATION
-			ACTION_TYPE="grant"
 			clear
-			OUTPUT=$(advancement_criterion 2>&1)
+			OUTPUT=$(advancements_function "grant" "$TARGET" "$MOD" "$RESOURCE_LOCATION" "$CRITERION_RESOURCE_LOCATION" 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -65,9 +65,8 @@ do
 			read RESOURCE_LOCATION
 			printf "Input advancement criterion resource location: "
 			read CRITERION_RESOURCE_LOCATION
-			ACTION_TYPE="revoke"
 			clear
-			OUTPUT=$(advancement_criterion 2>&1)
+			OUTPUT=$(advancements_function "revoke" "$TARGET" "$MOD" "$RESOURCE_LOCATION" "$CRITERION_RESOURCE_LOCATION" 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -111,22 +110,21 @@ do
 	clear
 	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
 	read ACH_GRT_VAR
-	ACTION_TYPE="grant"
 	case "$ACH_GRT_VAR" in
-		1) FUNC_NAME="only_advancement"
-			grant_revoke_menu_abstract 
+		1) 
+			grant_revoke_menu_abstract "grant" "only"
 		;;		
-		2) FUNC_NAME="every_advancement"
-			grant_revoke_menu_abstract
+		2) 
+			grant_revoke_menu_abstract "grant" "everything"
 		;;
-		3) FUNC_NAME="child_advancements"
-			grant_revoke_menu_abstract
+		3)
+			grant_revoke_menu_abstract "grant" "from"
 		;;
-		4) FUNC_NAME="parent_advancements"
-			grant_revoke_menu_abstract
+		4) 
+			grant_revoke_menu_abstract "grant" "until"
 		;;
-		5) FUNC_NAME="child_and_parent_advancements"
-			grant_revoke_menu_abstract
+		5) 
+			grant_revoke_menu_abstract "grant" "through"
 		;;
 		9) break ;;
 		*) clear
@@ -144,22 +142,21 @@ do
 	clear
 	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
 	read ACH_REV_VAR
-	ACTION_TYPE="revoke"
 	case "$ACH_REV_VAR" in
-		1) FUNC_NAME="only_advancement"
-			grant_revoke_menu_abstract 
+		1) 
+			grant_revoke_menu_abstract "revoke" "only" 
 		;;
-		2) FUNC_NAME="every_advancement"
-			grant_revoke_menu_abstract
+		2) 
+			grant_revoke_menu_abstract "revoke" "everything"
 		;;
-		3) FUNC_NAME="child_advancements"
-			grant_revoke_menu_abstract
+		3) 
+			grant_revoke_menu_abstract "revoke" "from"
 		;;
-		4) FUNC_NAME="parent_advancements"
-			grant_revoke_menu_abstract
+		4) 
+			grant_revoke_menu_abstract "revoke" "until"
 		;;
-		5) FUNC_NAME="child_and_parent_advancements"
-			grant_revoke_menu_abstract
+		5) 
+			grant_revoke_menu_abstract "revoke" "through"
 		;;
 		9) break ;;
 		*) clear
