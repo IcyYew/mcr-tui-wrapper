@@ -48,7 +48,7 @@ do
 			printf "Input text to send to all users: "
 			read TEXT
 			clear
-			if OUTPUT=$(tellall 2>&1); then
+			if OUTPUT=$(tellall $TEXT 2>&1); then
 				printf 'You sent the message: %s\n' "$OUTPUT"
 			else
 				printf 'Message not sent\n'
