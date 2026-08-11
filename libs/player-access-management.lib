@@ -17,3 +17,21 @@ ban_ip() {
 unban_ip() {
 	rcon "pardon-ip $1"
 }
+
+whitelist_add_user() {
+	rcon "whitelist add $1"
+	rcon "whitelist reload"
+}
+
+whitelist_remove_user() {
+	rcon "whitelist remove $1"
+	rcon "whitelist reload"
+}
+
+whitelist_list() {
+	rcon "whitelist list"
+}
+
+whitelist_toggle() {
+	rcon "whitelist "$1"
+}

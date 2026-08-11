@@ -58,3 +58,55 @@ do
 	esac
 done
 }
+
+#
+#
+# LAYER 2 WHITELIST MANAGEMENT MENU
+#
+#
+
+whitelist_management_menu() {
+while :
+do
+	clear
+	printf "WHITELIST MANAGEMENT MENU\n1. ADD USER(S)\n2. REMOVE USER(S)\n3. WHITELISTED USERS\n4. WHITELIST ON\n5. WHITELIST OFF\n9. BACK\n"
+	read WL_MGM_VAR
+	case $WL_MGM_VAR in
+		1)
+			clear
+			printf "Input username(s): "
+			read TARGET
+			whitelist_add_user
+			wait_for_user
+		;;
+		2)
+			clear
+			printf "Input username(s): "
+			read TARGET
+			whitelist_remove_user
+			wait_for_user
+
+		;;
+		3) 
+			clear
+			whitelist_list
+			wait_for_user
+
+		;;
+		4) 
+			clear
+			whitelist_toggle "on"
+			wait_for_user
+		;;
+		5)
+			clear
+			whitelist_toggle "off"
+			wait_for_user
+		;;
+		9) break ;;
+		*) printf "Invalid Option" ;;
+
+	esac
+
+done
+}
