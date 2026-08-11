@@ -11,9 +11,9 @@ advancements_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENTS MENU\n1. ADVANCEMENT MANAGEMENT\n2. ADVANCEMENT CRITERION MANAGEMENT\n3. ADVANCEMENT FETCHING\n9. EXIT\n"
-	read ACH_SELECT_VAR
-	case "$ACH_SELECT_VAR" in
+	printf "ADVANCEMENTS MENU\n1. ADVANCEMENT MANAGEMENT\n2. ADVANCEMENT CRITERION MANAGEMENT\n3. ADVANCEMENT FETCHING\n9. BACK\n"
+	read ADV_SELECT_VAR
+	case "$ADV_SELECT_VAR" in
 		1) advancement_management_menu ;;
 		2) advancement_criterion_management_menu ;;
 		3) clear
@@ -40,10 +40,10 @@ advancement_criterion_management_menu() {
 while :
 do 
 	clear
-	printf "ADVANCEMENT CRITERION MANAGEMENT\n1. GRANT CRITERION\n2. REVOKE CRITERION\n9. EXIT\n"
-	read ACH_CRT_MGT_VAR
+	printf "ADVANCEMENT CRITERION MANAGEMENT\n1. GRANT CRITERION\n2. REVOKE CRITERION\n9. BACK\n"
+	read ADV_CRT_MGT_VAR
 	MOD="only"
-	case "$ACH_CRT_MGT_VAR" in
+	case "$ADV_CRT_MGT_VAR" in
 		# Grants a single advancement criterion to specified target
 		1) clear
 			printf "Input target player username (or player target selector): "
@@ -85,9 +85,9 @@ advancement_management_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. EXIT\n"
-	read ACH_MGMT_VAR
-	case "$ACH_MGMT_VAR" in
+	printf "ADVANCEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. BACK\n"
+	read ADV_MGMT_VAR
+	case "$ADV_MGMT_VAR" in
 		1) advancement_grant_menu ;;
 		2) advancement_revoke_menu ;;
 		9) break ;;
@@ -108,9 +108,9 @@ advancement_grant_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
-	read ACH_GRT_VAR
-	case "$ACH_GRT_VAR" in
+	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. BACK\n"
+	read ADV_GRT_VAR
+	case "$ADV_GRT_VAR" in
 		1) 
 			grant_revoke_menu_abstract "grant" "only"
 		;;		
@@ -140,9 +140,9 @@ advancement_revoke_menu() {
 while :
 do
 	clear
-	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
-	read ACH_REV_VAR
-	case "$ACH_REV_VAR" in
+	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. BACK\n"
+	read ADV_REV_VAR
+	case "$ADV_REV_VAR" in
 		1) 
 			grant_revoke_menu_abstract "revoke" "only" 
 		;;
