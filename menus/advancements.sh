@@ -153,6 +153,7 @@ do
 			OUTPUT=$(grant_child_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
+		;;
 		9) break ;;
 		*) clear
 			printf "Invalid option"
