@@ -143,9 +143,9 @@ while :
 do
 	clear
 	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
-	read ACH_GRT_VAR
+	read ACH_REV_VAR
 	ACTION_TYPE="revoke"
-	case "$ACH_GRT_VAR" in
+	case "$ACH_REV_VAR" in
 		1) FUNC_NAME="only_advancement"
 			grant_revoke_menu_abstract 
 		;;
