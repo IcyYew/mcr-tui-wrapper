@@ -1,7 +1,19 @@
 ban_player() {
-	rcon "ban $TARGET $REASON"
+	rcon "ban $1 $2"
 }
 
 unban_player() {
-	rcon "pardon $TARGET"
+	rcon "pardon $1"
+}
+
+list_banlist() {
+	rcon "banlist"
+}
+
+ban_ip() {
+	rcon "ban-ip $1"
+}
+
+unban_ip() {
+	rcon "pardon-ip $1"
 }
