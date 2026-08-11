@@ -16,18 +16,17 @@ while :
 do
 	# Clean up screen
 	clear
-	printf "MCR TUI WRAPPER\n1. LIST USERS\n2. SEND MESSAGE TO ALL USERS\n3. ADVANCEMENTS MENU\n9. EXIT\n"
+	printf "MCR TUI WRAPPER\n1. PLAYER ACCESS MANAGEMENT\n2. ADVANCEMENTS\n3. MESSAGE ALL\n4. LIST USERS\n9. EXIT\n"
 	read SELECTION_VAR
 	case "$SELECTION_VAR" in
-		# Case 1 lists all active users and quantity of users
-		1) clear
-			# Define OUTPUT variable to read the output of the list function
-			OUTPUT=$(list 2>&1)
-			printf '%s\n' "$OUTPUT"
-			wait_for_user
+		1)
+			player_access_management_menu
 		 ;;
-		 # Case 2 sends a message to all users on the server as the server
-		2) clear
+		2)
+			advancements_menu
+		;;
+		3) 
+			clear
 			printf "Input text to send to all users: "
 			read TEXT
 			clear
@@ -37,10 +36,15 @@ do
 				printf 'Message not sent\n'
 			fi
 			wait_for_user
-		 ;;
-		3) 
 			advancements_menu
 		;;
+		4)clear
+			# Define OUTPUT variable to read the output of the list function
+			OUTPUT=$(list 2>&1)
+			printf '%s\n' "$OUTPUT"
+			wait_for_user
+		;;
+
 		 # Case 9 obvious
 	 	9) clear
 			printf "Bye bye! o/\n"

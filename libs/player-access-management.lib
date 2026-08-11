@@ -1,0 +1,3 @@
+ban_player() {
+	rcon "ban $TARGET $REASON"
+}
