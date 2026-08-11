@@ -6,7 +6,9 @@
 #
 #
 . ./.env
-. ./mcrw-functions.lib
+. ./libs/mcrw-functions.lib
+. ./libs/advancements.lib
+
 . ./menus/advancements.sh
 #
 #

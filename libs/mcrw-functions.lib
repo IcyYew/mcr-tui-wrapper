@@ -29,43 +29,6 @@ wait_for_user() {
 	read X
 }
 
-grant_only_advancement() {
-	rcon "advancement grant ${TARGET} only ${RESOURCE_LOCATION}"
-	STATUS=$?
-}
-
-grant_every_advancement() {
-	rcon "advancement grant ${TARGET} everything"
-}
-
-revoke_only_advancement() {
-	rcon "advancement revoke ${TARGET} only ${RESOURCE_LOCATION}"
-}
-
-revoke_every_advancement() {
-	rcon "advancement revoke ${TARGET} everything"
-}
-
-grant_advancement_criterion() {
-	rcon "advancement grant ${TARGET} only ${RESOURCE_LOCATION} ${CRITERION_RESOURCE_LOCATION}"
-}
-
-revoke_advancement_criterion() {
-	rcon "advancement revoke ${TARGET} only ${RESOURCE_LOCATION} ${CRITERION_RESOURCE_LOCATION}"
-}
-
-grant_child_advancements() {
-	rcon "advancement grant ${TARGET} from ${RESOURCE_LOCATION}"
-}
-
-grant_parent_advancements() {
-	rcon "advancement grant ${TARGET} until ${RESOURCE_LOCATION}"
-}
-
-grant_child_and_parent_advancements() {
-	rcon "advancement grant ${TARGET} through ${RESOURCE_LOCATION}"
-}
-
 revoke_child_advancements() {
 	rcon "advancement revoke ${TARGET} from ${RESOURCE_LOCATION}"
 }
@@ -74,6 +37,3 @@ revoke_parent_advancements() {
 	rcon "advancement revoke ${TARGET} until ${RESOURCE_LOCATION}"
 }
 
-revoke_child_and_parent_advancements() {
-	rcon "advancement revoke ${TARGET} through ${RESOURCE_LOCATION}"
-}

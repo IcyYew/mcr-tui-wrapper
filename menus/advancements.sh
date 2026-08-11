@@ -46,8 +46,9 @@ do
 			read RESOURCE_LOCATION
 			printf "Input advancement criterion resource location: "
 			read CRITERION_RESOURCE_LOCATION
+			ACTION_TYPE="grant"
 			clear
-			OUTPUT=$(grant_advancement_criterion 2>&1)
+			OUTPUT=$(advancement_criterion 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -59,8 +60,9 @@ do
 			read RESOURCE_LOCATION
 			printf "Input advancement criterion resource location: "
 			read CRITERION_RESOURCE_LOCATION
+			ACTION_TYPE="revoke"
 			clear
-			OUTPUT=$(revoke_advancement_criterion 2>&1)
+			OUTPUT=$(advancement_criterion 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -81,7 +83,7 @@ do
 	printf "ADVANCEMENT MANAGEMENT\n1. GRANT\n2. REVOKE\n9. EXIT\n"
 	read ACH_MGMT_VAR
 	case "$ACH_MGMT_VAR" in
-		1)advancement_grant_menu ;;
+		1) advancement_grant_menu ;;
 		2) advancement_revoke_menu ;;
 		9) break ;;
 		*) clear
@@ -102,6 +104,7 @@ do
 	clear
 	printf "ADVANCEMENT GRANT MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
 	read ACH_GRT_VAR
+	ACTION_TYPE="grant"
 	case "$ACH_GRT_VAR" in
 		1) clear 
 			printf "Input target player username (or player target selector): "
@@ -109,7 +112,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(grant_only_advancement 2>&1)
+			OUTPUT=$(only_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -120,7 +123,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(grant_every_advancement 2>&1)
+			OUTPUT=$(every_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -130,7 +133,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(grant_child_advancements 2>&1)
+			OUTPUT=$(child_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -140,7 +143,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(grant_parent_advancements 2>&1)
+			OUTPUT=$(parent_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -150,7 +153,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(grant_child_and_parent_advancements 2>&1)
+			OUTPUT=$(child_and_parent_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -169,6 +172,7 @@ do
 	clear
 	printf "ADVANCEMENT REVOKE MENU\n1. ONLY\n2. EVERYTHING\n3. ALL CHILDREN\n4. ALL PARENTS\n5. ALL PARENTS & CHILDREN\n9. EXIT\n"
 	read ACH_GRT_VAR
+	ACTION_TYPE="revoke"
 	case "$ACH_GRT_VAR" in
 		1) clear
 			printf "Input target player username (or player target selector): "
@@ -176,7 +180,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(revoke_only_advancement 2>&1)
+			OUTPUT=$(only_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -185,7 +189,7 @@ do
 			printf "Input target player username (or player target selector): "
 			read TARGET
 			clear
-			OUTPUT=$(revoke_every_advancement 2>&1)
+			OUTPUT=$(every_advancement 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -195,7 +199,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(revoke_child_advancements 2>&1)
+			OUTPUT=$(child_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -205,7 +209,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(revoke_parent_advancements 2>&1)
+			OUTPUT=$(parent_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -215,7 +219,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(revoke_child_and_parent_advancements 2>&1)
+			OUTPUT=$(child_and_parent_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
