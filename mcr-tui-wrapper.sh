@@ -37,7 +37,6 @@ do
 				printf 'Message not sent\n'
 			fi
 			wait_for_user
-			advancements_menu
 		;;
 		4)clear
 			# Define OUTPUT variable to read the output of the list function
