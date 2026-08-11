@@ -10,6 +10,7 @@
 . ./libs/advancements.lib
 
 . ./menus/advancements.sh
+. ./menus/player-access-management.sh
 
 # Main TUI loop
 while :
