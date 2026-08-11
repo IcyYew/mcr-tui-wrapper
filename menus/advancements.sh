@@ -140,7 +140,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(grant__parent_advancements 2>&1)
+			OUTPUT=$(grant_parent_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -150,7 +150,7 @@ do
 			printf "Input advancement resource location: "
 			read RESOURCE_LOCATION
 			clear
-			OUTPUT=$(grant_child_advancements 2>&1)
+			OUTPUT=$(grant_child_and_parent_advancements 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
