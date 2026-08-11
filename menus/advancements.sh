@@ -42,6 +42,7 @@ do
 	clear
 	printf "ADVANCEMENT CRITERION MANAGEMENT\n1. GRANT CRITERION\n2. REVOKE CRITERION\n9. EXIT\n"
 	read ACH_CRT_MGT_VAR
+	MOD="only"
 	case "$ACH_CRT_MGT_VAR" in
 		# Grants a single advancement criterion to specified target
 		1) clear
@@ -52,7 +53,7 @@ do
 			printf "Input advancement criterion resource location: "
 			read CRITERION_RESOURCE_LOCATION
 			clear
-			OUTPUT=$(advancements_function "grant" "$TARGET" "only" "$RESOURCE_LOCATION" "$CRITERION_RESOURCE_LOCATION" 2>&1)
+			OUTPUT=$(advancements_function "grant" "$TARGET" "$MOD" "$RESOURCE_LOCATION" "$CRITERION_RESOURCE_LOCATION" 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -66,7 +67,7 @@ do
 			read CRITERION_RESOURCE_LOCATION
 			ACTION_TYPE="revoke"
 			clear
-			OUTPUT=$(advancement_criterion 2>&1)
+			OUTPUT=$(advancements_function "revoke" "$TARGET" "$MOD" "$RESOURCE_LOCATION" "$CRITERION_RESOURCE_LOCATION" 2>&1)
 			printf '%s\n' "$OUTPUT"
 			wait_for_user
 		;;
@@ -112,8 +113,8 @@ do
 	read ACH_GRT_VAR
 	ACTION_TYPE="grant"
 	case "$ACH_GRT_VAR" in
-		1) FUNC_NAME="only_advancement"
-			grant_revoke_menu_abstract 
+		1) 
+			grant_revoke_menu_abstract "$ACTION_TYPE" "only"
 		;;		
 		2) FUNC_NAME="every_advancement"
 			grant_revoke_menu_abstract

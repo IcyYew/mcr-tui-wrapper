@@ -2,12 +2,14 @@ grant_revoke_menu_abstract() {
 	clear 
 	printf "Input target player username (or player target selector): "
 	read TARGET
-	if [ "$FUNC_NAME" != "every_advancement" ]; then
-		printf "Input advancement resource location: "
+	if [ "$2" != "everything" ]; then
+		printf "Input target resource location: "
 		read RESOURCE_LOCATION
+		OUTPUT=$(advancements_function "$1" "$TARGET" "$2" "$RESOURCE_LOCATION" 2>&1)
+	else
+		OUTPUT=$(advancements_function "$1" "$TARGET" "$2" 2>&1)
+		
 	fi
-	clear
-	OUTPUT=$($FUNC_NAME 2>&1)
 	printf '%s\n' "$OUTPUT"
 	wait_for_user
 }
@@ -40,12 +42,12 @@ child_and_parent_advancements() {
 
 
 advancements_function() {
-	CMD_STR="advancement $1 ${TARGET} $3"
-	if [ "$MODIFIER" != "everything" ]; then
-		CMD_STR="$CMD_STR ${RESOURCE_LOCATION}"
+	CMD_STR="advancement $1 $2 $3"
+	if [ "$3" != "everything" ]; then
+		CMD_STR="$CMD_STR $4"
 
-		if [ -n "$CRITERION_RESOURCE_LOCATION" ]; then
-			CMD_STR="$CMD_STR ${CRITERION_RESOURCE_LOCATION}"
+		if [ -n "$5" ]; then
+			CMD_STR="$CMD_STR $5"
 		fi
 	fi
 	rcon "${CMD_STR}"
